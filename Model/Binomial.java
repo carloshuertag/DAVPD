@@ -3,7 +3,7 @@ public class Binomial extends Davpd{
     private int n;
     public Binomial () { }
     public Binomial (String name, String description, String function, String cumulative, String mean, String variance, double p, int n){
-        super(name, description, function, cumulative, mean, variance);
+        super(description, function, cumulative, mean, variance);
         this.p = p;
         this.n = n;
     }

@@ -1,17 +1,14 @@
 public class Davpd {
-    protected String name, description, function, cumulative, mean, variance;
+    protected String description, function, cumulative, mean, variance;
     protected double var, value, cumulativeValue, meanValue, varianceValue;
     public Davpd() {}
-    public Davpd (String name, String description, String function, String cumulative, String mean, String variance) {
-        this.name = name;
+    public Davpd (String description, String function, String cumulative, String mean, String variance) {
         this.description = description;
         this.function = function;
         this.cumulative = cumulative;
         this.mean = mean;
         this.variance = variance;
     }
-    public void setName(String name){ this.name = name; }
-    public String getName(){ return name; }
     public void setDescription(String description){ this.description = description; }
     public String getDescription(){ return description; }
     public void setFunction(String function){ this.function = function; }
@@ -33,12 +30,12 @@ public class Davpd {
     public void setVarianceValue(double varianceValue){ this.varianceValue = varianceValue; }
     public double getVarianceValue(){ return varianceValue; }
     @Override
-    public String toString() { return String.format("X ~ %s(X)", name); }
+    public String toString() { return String.format("X ~ %s(X)", description); }
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Davpd){
             Davpd davpd = (Davpd) obj;
-            if(davpd.name == name)
+            if(davpd.function == function)
                 return true;
         }
         return false;

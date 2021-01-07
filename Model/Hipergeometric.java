@@ -2,7 +2,7 @@ public class Hipergeometric extends Davpd{
     private int r1, r2, n;
     public Hipergeometric () { }
     public Hipergeometric (String name, String description, String function, String cumulative, String mean, String variance, int r1, int r2, int n){
-        super(name, description, function, cumulative, mean, variance);
+        super(description, function, cumulative, mean, variance);
         this.r1 = r1;
         this.r2 = r2;
         this.n = n;

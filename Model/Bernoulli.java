@@ -2,7 +2,7 @@ public class Bernoulli extends Davpd{
     private double p;
     public Bernoulli () { }
     public Bernoulli (String name, String description, String function, String cumulative, String mean, String variance, double p){
-        super(name, description, function, cumulative, mean, variance);
+        super(description, function, cumulative, mean, variance);
         this.p = p;
     }
     public void setP(double p){ this.p = p; }
