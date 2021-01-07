@@ -30,7 +30,7 @@ public class Davpd {
     public void setVarianceValue(double varianceValue){ this.varianceValue = varianceValue; }
     public double getVarianceValue(){ return varianceValue; }
     @Override
-    public String toString() { return String.format("X ~ %s(X)", description); }
+    public String toString() { return String.format("X ~ %s(%d)", description, value); }
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Davpd){
