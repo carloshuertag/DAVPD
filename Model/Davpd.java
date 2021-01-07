@@ -1,6 +1,6 @@
 public class Davpd {
-    private String name, description, function, cumulative, mean, variance;
-    private double var, value, cumulativeValue, meanValue, varianceValue;
+    protected String name, description, function, cumulative, mean, variance;
+    protected double var, value, cumulativeValue, meanValue, varianceValue;
     public Davpd() {}
     public Davpd (String name, String description, String function, String cumulative, String mean, String variance) {
         this.name = name;
