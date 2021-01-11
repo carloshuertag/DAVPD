@@ -1,7 +1,7 @@
 public class Poisson extends Davpd{
     private double lamda;
     public Poisson () { }
-    public Poisson (String name, String description, String function, String cumulative, String mean, String variance, double lamda){
+    public Poisson (String description, String function, String cumulative, String mean, String variance, double lamda){
         super(description, function, cumulative, mean, variance);
         this.lamda = lamda;
     }
@@ -9,19 +9,26 @@ public class Poisson extends Davpd{
     public double getLamda(){ return lamda; }
     @Override
     public double getValue(){
-        return value;
+        return Math.exp(-lamda) * Math.pow(lamda, var) / CountingTechniques.factorial(var);
     }
     @Override
     public double getCumulativeValue(){
+        cumulativeValue = 0;
+        double tmp = var;
+        for(int i = 0; i < var; i++){
+            var = i + 0.0;
+            cumulativeValue += getValue();
+        }
+        var = tmp;
         return cumulativeValue;
     }
     @Override
     public double getMeanValue(){ 
-        return meanValue;
+        return lamda;
     }
     @Override
     public double getVarianceValue(){
-        return varianceValue;
+        return lamda;
     }
     @Override
     public String toString() {
