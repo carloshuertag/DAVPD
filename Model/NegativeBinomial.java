@@ -11,4 +11,33 @@ public class NegativeBinomial extends Davpd{
     public double getP(){ return p; }
     public void setK(int k){ this.k = k; }
     public double getK(){ return k; }
+    @Override
+    public double getValue(){
+        return value;
+    }
+    @Override
+    public double getCumulativeValue(){
+        return cumulativeValue;
+    }
+    @Override
+    public double getMeanValue(){ 
+        return meanValue;
+    }
+    @Override
+    public double getVarianceValue(){
+        return varianceValue;
+    }
+    @Override
+    public String toString() {
+        return String.format("X ~ %s(%d)", description, value);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Davpd){
+            Davpd davpd = (Davpd) obj;
+            if(davpd.function == function)
+                return true;
+        }
+        return false;
+    }
 }
