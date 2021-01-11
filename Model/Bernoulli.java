@@ -1,21 +1,25 @@
 public class Bernoulli extends Davpd{
     private double p;
     public Bernoulli () { }
-    public Bernoulli (String name, String description, String function, String cumulative, String mean, String variance, double p){
+    public Bernoulli (String description, String function, String cumulative, String mean, String variance, double p){
         super(description, function, cumulative, mean, variance);
         this.p = p;
     }
-    public void setP(double p){ this.p = p; }
+    public void setP(double p) throws Exception{
+        if(!(p <= 1 && p > 0))
+            throw new Exception("p must be between (0, 1]");
+        this.p = p;
+    }
     public double getP(){return p; }
     @Override
     public double getValue(){
-        return Math.pow(p, super.var) * Math.pow(1 - p, 1 - super.var);
+        return Math.pow(p, var) * Math.pow(1 - p, 1 - var);
     }
     @Override
     public double getCumulativeValue(){
-        if(super.var < 0)
+        if(var < 0)
             return 0;
-        if(super.var >= 1)
+        if(var >= 1)
             return p;
         return 1 - p;
     }
@@ -29,7 +33,7 @@ public class Bernoulli extends Davpd{
     }
     @Override
     public String toString() {
-        return String.format("X ~ Ber(x = %d; p = &d)", super.var, p);
+        return String.format("X ~ Ber(x = %d; p = &d)", var, p);
     }
     @Override
     public boolean equals(Object obj) {

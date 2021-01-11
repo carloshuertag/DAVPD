@@ -1,37 +1,17 @@
-public class Geometric extends Davpd{
-    private double p;
+public class Geometric extends NegativeBinomial{
     public Geometric () { }
     public Geometric (String description, String function, String cumulative, String mean, String variance, double p){
-        super(description, function, cumulative, mean, variance);
-        this.p = p;
-    }
-    public void setP(double p){ this.p = p; }
-    public double getP(){ return p; }
-    @Override
-    public double getValue(){
-        return value;
-    }
-    @Override
-    public double getCumulativeValue(){
-        return cumulativeValue;
-    }
-    @Override
-    public double getMeanValue(){ 
-        return meanValue;
-    }
-    @Override
-    public double getVarianceValue(){
-        return varianceValue;
+        super(description, function, cumulative, mean, variance, p, 1);
     }
     @Override
     public String toString() {
-        return String.format("X ~ %s(%d)", description, value);
+        return String.format("X ~ G(x = %d; p = &d)", var, p);
     }
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Davpd){
-            Davpd davpd = (Davpd) obj;
-            if(davpd.function == function)
+            Geometric geometric = (Geometric) obj;
+            if(geometric.p == p)
                 return true;
         }
         return false;

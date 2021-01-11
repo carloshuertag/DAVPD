@@ -15,29 +15,36 @@ public class Hipergeometric extends Davpd{
     public double getN(){ return n; }
     @Override
     public double getValue(){
-        return value;
+        return (CountingTechniques.combinatorial(r1, var) * CountingTechniques.combinatorial(r2, n - var)) / CountingTechniques.combinatorial(r1 + r2, n);
     }
     @Override
     public double getCumulativeValue(){
+        cumulativeValue = 0;
+        double tmp = var;
+        for(int i = Math.max(0, n - r2); i < var; i++){
+            var = i + 0.0;
+            cumulativeValue += getValue();
+        }
+        var = tmp;
         return cumulativeValue;
     }
     @Override
     public double getMeanValue(){ 
-        return meanValue;
+        return (r1 * n) / (r1 + r2);
     }
     @Override
     public double getVarianceValue(){
-        return varianceValue;
+        return n * (r1 / (r1 + r2)) ;
     }
     @Override
     public String toString() {
-        return String.format("X ~ %s(%d)", description, value);
+        return String.format("X ~ H(x = %d; r1 = %d, r2 = %d, n = %d)", var, r1, r2, n);
     }
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Davpd){
-            Davpd davpd = (Davpd) obj;
-            if(davpd.function == function)
+            Hipergeometric hipergeometric = (Hipergeometric) obj;
+            if(hipergeometric.r1 == r1 && hipergeometric.r2 == r2 && hipergeometric.n == n)
                 return true;
         }
         return false;
