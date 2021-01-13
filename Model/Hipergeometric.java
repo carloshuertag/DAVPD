@@ -1,3 +1,5 @@
+package Model;
+
 public class Hipergeometric extends Davpd{
     private int r1, r2, n;
     public Hipergeometric () { }

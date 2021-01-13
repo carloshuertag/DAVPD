@@ -1,3 +1,5 @@
+package Model;
+
 public class Geometric extends NegativeBinomial{
     public Geometric () { }
     public Geometric (String description, String function, String cumulative, String mean, String variance, double p){

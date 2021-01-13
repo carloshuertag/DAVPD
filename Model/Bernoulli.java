@@ -1,3 +1,5 @@
+package Model;
+
 public class Bernoulli extends Davpd{
     private double p;
     public Bernoulli () { }

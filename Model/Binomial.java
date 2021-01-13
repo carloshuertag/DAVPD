@@ -1,3 +1,5 @@
+package Model;
+
 public class Binomial extends Davpd{
     private double p;
     private int n;

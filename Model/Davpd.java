@@ -1,6 +1,11 @@
-public abstract class Davpd {
+package Model;
+
+import java.io.Serializable;
+
+public abstract class Davpd implements Serializable{
+    private static final long serialVersionUID = 3370351772286807795L;
     protected String description, function, cumulative, mean, variance;
-    protected double var, value, cumulativeValue, meanValue, varianceValue;
+    protected transient double var, value, cumulativeValue, meanValue, varianceValue;
     public Davpd() {}
     public Davpd (String description, String function, String cumulative, String mean, String variance) {
         this.description = description;

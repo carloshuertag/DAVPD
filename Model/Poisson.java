@@ -1,3 +1,5 @@
+package Model;
+
 public class Poisson extends Davpd{
     private double lamda;
     public Poisson () { }

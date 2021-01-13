@@ -1,3 +1,5 @@
+package Model;
+
 public class NegativeBinomial extends Davpd{
     protected double p;
     protected int k;
