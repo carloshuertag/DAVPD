@@ -1,11 +1,9 @@
-package Model;
-
 public class Binomial extends Davpd{
     private double p;
     private int n;
     public Binomial () { }
-    public Binomial (String description, String function, String cumulative, String mean, String variance, double p, int n){
-        super(description, function, cumulative, mean, variance);
+    public Binomial (double p, int n){
+        super("images/BinomialD.jpg", "images/BinomialF.jpg", "images/BinomialC.jpg", "images/BinomialM.jpg", "images/BinomialV.jpg");
         this.p = p;
         this.n = n;
     }
@@ -19,14 +17,14 @@ public class Binomial extends Davpd{
     public double getN(){ return n; }
     @Override
     public double getValue(){
-        return CountingTechniques.combinatorial(n + 0.0, var) * Math.pow(p, var) * Math.pow(1 - p, n - var);
+        return CountingTechniques.combinatorial(n + 0.0, var + 0.0) * Math.pow(p, var + 0.0) * Math.pow(1 - p, n - var + 0.0);
     }
     @Override
     public double getCumulativeValue(){
         cumulativeValue = 0;
-        double tmp = var;
+        int tmp = var;
         for(int i = 0; i < var; i++){
-            var = i + 0.0;
+            var = i;
             cumulativeValue += getValue();
         }
         var = tmp;
@@ -42,7 +40,7 @@ public class Binomial extends Davpd{
     }
     @Override
     public String toString() {
-        return String.format("X ~ B(x = %d; n = %d, p = %d)", var, n, p);
+        return String.format("X ~ B(x = %d; n = %d, p = %f)", var, n, p);
     }
     @Override
     public boolean equals(Object obj) {

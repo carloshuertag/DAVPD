@@ -1,10 +1,8 @@
-package Model;
-
 public class Hipergeometric extends Davpd{
     private int r1, r2, n;
     public Hipergeometric () { }
-    public Hipergeometric (String description, String function, String cumulative, String mean, String variance, int r1, int r2, int n){
-        super(description, function, cumulative, mean, variance);
+    public Hipergeometric (int r1, int r2, int n){
+        super("images/HipergeomtricD.jpg", "images/HipergeomtricF.jpg", "images/HipergeomtricC.jpg", "images/HipergeomtricM.jpg", "images/HipergeomtricV.jpg");
         this.r1 = r1;
         this.r2 = r2;
         this.n = n;
@@ -22,9 +20,9 @@ public class Hipergeometric extends Davpd{
     @Override
     public double getCumulativeValue(){
         cumulativeValue = 0;
-        double tmp = var;
+        int tmp = var;
         for(int i = Math.max(0, n - r2); i < var; i++){
-            var = i + 0.0;
+            var = i;
             cumulativeValue += getValue();
         }
         var = tmp;

@@ -1,9 +1,12 @@
-package Model;
-
 public class NegativeBinomial extends Davpd{
     protected double p;
     protected int k;
     public NegativeBinomial () { }
+    public NegativeBinomial (double p, int k){
+        super("images/NegativeBinomialD.jpg", "images/NegativeBinomialF.jpg", "images/NegativeBinomialC.jpg", "images/NegativeBinomialM.jpg", "images/NegativeBinomialV.jpg");
+        this.p = p;
+        this.k = k;
+    }
     public NegativeBinomial (String description, String function, String cumulative, String mean, String variance, double p, int k){
         super(description, function, cumulative, mean, variance);
         this.p = p;
@@ -19,14 +22,14 @@ public class NegativeBinomial extends Davpd{
     public double getK(){ return k; }
     @Override
     public double getValue(){
-        return CountingTechniques.combinatorial(var - 1, k - 1) * Math.pow(p, k) * Math.pow(1 - p, var - k);
+        return CountingTechniques.combinatorial(var - 1.0, k - 1) * Math.pow(p, k) * Math.pow(1 - p, var - k + 0.0);
     }
     @Override
     public double getCumulativeValue(){
         cumulativeValue = 0;
-        double tmp = var;
+        int tmp = var;
         for(int i = k; i < var; i++){
-            var = i + 0.0;
+            var = i;
             cumulativeValue += getValue();
         }
         var = tmp;
@@ -42,7 +45,7 @@ public class NegativeBinomial extends Davpd{
     }
     @Override
     public String toString() {
-        return String.format("X ~ NB(x = %d; p = %d, k = %d)", var, p, k);
+        return String.format("X ~ NB(x = %d; p = %f, k = %d)", var, p, k);
     }
     @Override
     public boolean equals(Object obj) {

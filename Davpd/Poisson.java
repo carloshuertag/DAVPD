@@ -1,24 +1,22 @@
-package Model;
-
 public class Poisson extends Davpd{
     private double lamda;
     public Poisson () { }
-    public Poisson (String description, String function, String cumulative, String mean, String variance, double lamda){
-        super(description, function, cumulative, mean, variance);
+    public Poisson (double lamda){
+        super("images/PoissonD.jpg", "images/PoissonF.jpg", "images/PoissonC.jpg", "images/PoissonM.jpg", "images/PoissonV.jpg");
         this.lamda = lamda;
     }
     public void setLamda(double lamda){ this.lamda = lamda; }
     public double getLamda(){ return lamda; }
     @Override
     public double getValue(){
-        return Math.exp(-lamda) * Math.pow(lamda, var) / CountingTechniques.factorial(var);
+        return Math.exp(-lamda) * Math.pow(lamda, var + 0.0) / CountingTechniques.factorial(var + 0.0);
     }
     @Override
     public double getCumulativeValue(){
         cumulativeValue = 0;
-        double tmp = var;
+        int tmp = var;
         for(int i = 0; i < var; i++){
-            var = i + 0.0;
+            var = i;
             cumulativeValue += getValue();
         }
         var = tmp;
@@ -34,7 +32,7 @@ public class Poisson extends Davpd{
     }
     @Override
     public String toString() {
-        return String.format("X ~ %s(%d)", description, value);
+        return String.format("X ~ P(x = %d; lamda = %d)", var, lamda);
     }
     @Override
     public boolean equals(Object obj) {

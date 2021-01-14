@@ -1,10 +1,8 @@
-package Model;
-
 public class Bernoulli extends Davpd{
     private double p;
     public Bernoulli () { }
-    public Bernoulli (String description, String function, String cumulative, String mean, String variance, double p){
-        super(description, function, cumulative, mean, variance);
+    public Bernoulli (double p){
+        super("images/BernoulliD.jpg", "images/BernoulliF.jpg", "images/BernoulliC.jpg", "images/BernoulliM.jpg", "images/BernoulliV.jpg");
         this.p = p;
     }
     public void setP(double p) throws Exception{
@@ -35,7 +33,7 @@ public class Bernoulli extends Davpd{
     }
     @Override
     public String toString() {
-        return String.format("X ~ Ber(x = %d; p = &d)", var, p);
+        return String.format("X ~ Ber(x = %d; p = %f)", var, p);
     }
     @Override
     public boolean equals(Object obj) {
