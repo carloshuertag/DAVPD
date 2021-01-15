@@ -1,8 +1,10 @@
 public class Bernoulli extends Davpd{
     private double p;
-    public Bernoulli () { }
-    public Bernoulli (double p){
+    public Bernoulli () {
         super("images/BernoulliD.jpg", "images/BernoulliF.jpg", "images/BernoulliC.jpg", "images/BernoulliM.jpg", "images/BernoulliV.jpg");
+    }
+    public Bernoulli (double p){
+        this();
         this.p = p;
     }
     public void setP(double p) throws Exception{

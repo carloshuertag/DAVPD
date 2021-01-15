@@ -1,8 +1,10 @@
 public class Poisson extends Davpd{
     private double lamda;
-    public Poisson () { }
-    public Poisson (double lamda){
+    public Poisson () {
         super("images/PoissonD.jpg", "images/PoissonF.jpg", "images/PoissonC.jpg", "images/PoissonM.jpg", "images/PoissonV.jpg");
+    }
+    public Poisson (double lamda){
+        this();
         this.lamda = lamda;
     }
     public void setLamda(double lamda){ this.lamda = lamda; }

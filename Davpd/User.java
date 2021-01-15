@@ -1,4 +1,7 @@
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = -8325470871823271412L;
     private String name, ip;
     public User() { }
     public void setName(String name) { this.name = name; }

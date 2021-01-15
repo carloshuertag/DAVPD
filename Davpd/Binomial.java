@@ -1,9 +1,11 @@
 public class Binomial extends Davpd{
     private double p;
     private int n;
-    public Binomial () { }
-    public Binomial (double p, int n){
+    public Binomial () {
         super("images/BinomialD.jpg", "images/BinomialF.jpg", "images/BinomialC.jpg", "images/BinomialM.jpg", "images/BinomialV.jpg");
+    }
+    public Binomial (double p, int n){
+        this();
         this.p = p;
         this.n = n;
     }

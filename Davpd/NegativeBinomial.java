@@ -1,9 +1,11 @@
 public class NegativeBinomial extends Davpd{
     protected double p;
     protected int k;
-    public NegativeBinomial () { }
-    public NegativeBinomial (double p, int k){
+    public NegativeBinomial () {
         super("images/NegativeBinomialD.jpg", "images/NegativeBinomialF.jpg", "images/NegativeBinomialC.jpg", "images/NegativeBinomialM.jpg", "images/NegativeBinomialV.jpg");
+    }
+    public NegativeBinomial (double p, int k){
+        this();
         this.p = p;
         this.k = k;
     }

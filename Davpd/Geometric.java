@@ -1,7 +1,10 @@
 public class Geometric extends NegativeBinomial{
-    public Geometric () { }
+    public Geometric () {
+        super("images/GeometricD.jpg", "images/GeoemtricF.jpg", "images/GeometricC.jpg", "images/GeometricM.jpg", "images/GeometricV.jpg", 0.0, 1);
+    }
     public Geometric (double p){
-        super("images/GeometricD.jpg", "images/GeoemtricF.jpg", "images/GeometricC.jpg", "images/GeometricM.jpg", "images/GeometricV.jpg", p, 1);
+        this();
+        super.p = p;
     }
     @Override
     public String toString() {
