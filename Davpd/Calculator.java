@@ -47,21 +47,15 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
     }
     private void enableParams(int c){
         switch (c) {
-            case 0:
-            paramJLabels.get(0).setText("");
-            paramJLabels.get(0).setEnabled(false);
-            paramJLabels.get(1).setText("");
-            paramJTextFields.get(1).setEnabled(false);
-            paramJLabels.get(2).setText("");
-            paramJTextFields.get(2).setEnabled(false);
-            break;
             case 1://Bernoulli Geometric
             paramJLabels.get(0).setText("p: ");
-            paramJLabels.get(0).setEnabled(true);
+            paramJTextFields.get(0).setEnabled(true);
             paramJLabels.get(1).setText("NA");
             paramJTextFields.get(1).setEnabled(false);
+            paramJTextFields.get(1).setText("");
             paramJLabels.get(2).setText("NA");
             paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
             case 2://Binomial
             paramJLabels.get(0).setText("p: ");
@@ -70,6 +64,7 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
             paramJTextFields.get(1).setEnabled(true);
             paramJLabels.get(2).setText("NA");
             paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
             case 3://NegativeBinomial
             paramJLabels.get(0).setText("p: ");
@@ -78,14 +73,17 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
             paramJTextFields.get(1).setEnabled(true);
             paramJLabels.get(2).setText("NA");
             paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
             case 4:
             paramJLabels.get(0).setText("p: ");
-            paramJLabels.get(0).setEnabled(true);
+            paramJTextFields.get(0).setEnabled(true);
             paramJLabels.get(1).setText("NA");
             paramJTextFields.get(1).setEnabled(false);
+            paramJTextFields.get(1).setText("");
             paramJLabels.get(2).setText("NA");
             paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
             case 5://Hipergeometric
             paramJLabels.get(0).setText("r1: ");
@@ -100,10 +98,21 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
             paramJTextFields.get(0).setEnabled(true);
             paramJLabels.get(1).setText("NA");
             paramJTextFields.get(1).setEnabled(false);
+            paramJTextFields.get(1).setText("");
             paramJLabels.get(2).setText("NA");
             paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
             default://Undefined
+            paramJLabels.get(0).setText("");
+            paramJTextFields.get(0).setEnabled(false);
+            paramJTextFields.get(0).setText("");
+            paramJLabels.get(1).setText("");
+            paramJTextFields.get(1).setEnabled(false);
+            paramJTextFields.get(1).setText("");
+            paramJLabels.get(2).setText("");
+            paramJTextFields.get(2).setEnabled(false);
+            paramJTextFields.get(2).setText("");
             break;
         }
     }
@@ -175,29 +184,71 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent actionEvent){
         if(actionEvent.getActionCommand().equals("Calculate")){
             try{
+                davpds.get(davpdJComboBox.getSelectedIndex() - 1).setVar(Integer.parseInt(varJTextField.getText()));
                 switch(davpdJComboBox.getSelectedIndex()){
                     case 1://Bernoulli
-                    davpds.get(davpdJComboBox.getSelectedIndex() + 1);
+                    Bernoulli b = (Bernoulli) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    b.setP(Double.parseDouble(paramJTextFields.get(0).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, b);
                     break;
                     case 2://Binomial
+                    Binomial bn = (Binomial) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    bn.setP(Double.parseDouble(paramJTextFields.get(0).getText()));
+                    bn.setN(Integer.parseInt(paramJTextFields.get(1).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, bn);
                     break;
                     case 3://NegativeBinomial
+                    NegativeBinomial nb = (NegativeBinomial) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    nb.setP(Double.parseDouble(paramJTextFields.get(0).getText()));
+                    nb.setK(Integer.parseInt(paramJTextFields.get(1).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, nb);
                     break;
                     case 4://Geometric
+                    Geometric g = (Geometric) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    g.setP(Double.parseDouble(paramJTextFields.get(0).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, g);
                     break;
                     case 5://Hipergeometric
+                    Hipergeometric hg = (Hipergeometric) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    hg.setR1(Integer.parseInt(paramJTextFields.get(0).getText()));
+                    hg.setR2(Integer.parseInt(paramJTextFields.get(1).getText()));
+                    hg.setN(Integer.parseInt(paramJTextFields.get(2).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, hg);
                     break;
                     case 6://Poisson
+                    Poisson p = (Poisson) davpds.get(davpdJComboBox.getSelectedIndex() - 1);
+                    p.setLamda(Double.parseDouble(paramJTextFields.get(0).getText()));
+                    davpds.set(davpdJComboBox.getSelectedIndex() - 1, p);
                     break;
                     default:
-                    JOptionPane.showMessageDialog(null, "Selecciona la distribuciñon");
+                    JOptionPane.showMessageDialog(null, "Selecciona la distribución");
                     break;
                 }
-                resultJTextField.setText(String.valueOf(davpds.get(davpdJComboBox.getSelectedIndex() + 1).getValue()));
+                switch (functionJComboBox.getSelectedIndex()) {
+                    case 1:
+                    resultJTextField.setText(String.valueOf(davpds.get(davpdJComboBox.getSelectedIndex() - 1).getValue()));
+                    break;
+                    case 2:
+                    resultJTextField.setText(String.valueOf(davpds.get(davpdJComboBox.getSelectedIndex() - 1).getCumulativeValue()));
+                    break;
+                    case 3:
+                    resultJTextField.setText(String.valueOf(1.0 - davpds.get(davpdJComboBox.getSelectedIndex() - 1).getCumulativeValue()));
+                    break;
+                    default:
+                    JOptionPane.showMessageDialog(null, "Selecciona la función");
+                    break;
+                }
             } catch (Exception e){
-                System.out.println("Error en la entrada");
+                System.out.println("Error en la entrada: " + e.getMessage());
                 JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
+        }
+        if(actionEvent.getActionCommand().equals("Clear")){
+            enableParams(0);
+            functionJComboBox.setSelectedIndex(0);
+            davpdJComboBox.setSelectedIndex(0);
+            varJTextField.setText("");
+            resultJTextField.setText("");
         }
     }
     @Override

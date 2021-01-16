@@ -1,7 +1,6 @@
 import java.io.Serializable;
 
-public abstract class Davpd implements Serializable{
-    private static final long serialVersionUID = 3370351772286807795L;
+public abstract class Davpd{
     protected  String description, function, cumulative, mean, variance;
     protected transient double value, cumulativeValue, meanValue, varianceValue;
     protected transient int var;

@@ -15,11 +15,10 @@ public class Driver {
         );
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(1080, 720);
-        jFrame.setResizable(true);
         jFrame.add(calculatorJPanel);
         jFrame.setLayout(null);
+        jFrame.setResizable(true);
         jFrame.setVisible(true);
         jFrame.setTitle("DAVPD");
-        jFrame.requestFocus();
     }
 }
