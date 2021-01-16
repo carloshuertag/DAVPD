@@ -28,9 +28,9 @@ public class NegativeBinomial extends Davpd{
     }
     @Override
     public double getCumulativeValue(){
-        cumulativeValue = 0;
+        cumulativeValue = 0.0;
         int tmp = var;
-        for(int i = k; i < var; i++){
+        for(int i = k; i < tmp; i++){
             var = i;
             cumulativeValue += getValue();
         }

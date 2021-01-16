@@ -15,9 +15,9 @@ public class Poisson extends Davpd{
     }
     @Override
     public double getCumulativeValue(){
-        cumulativeValue = 0;
+        cumulativeValue = 0.0;
         int tmp = var;
-        for(int i = 0; i < var; i++){
+        for(int i = 0; i < tmp; i++){
             var = i;
             cumulativeValue += getValue();
         }

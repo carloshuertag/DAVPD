@@ -19,13 +19,13 @@ public class Binomial extends Davpd{
     public double getN(){ return n; }
     @Override
     public double getValue(){
-        return CountingTechniques.combinatorial(n + 0.0, var + 0.0) * Math.pow(p, var + 0.0) * Math.pow(1 - p, n - var + 0.0);
+        return CountingTechniques.combinatorial(n + 0.0, var + 0.0) * Math.pow(p, var + 0.0) * Math.pow(1.0 - p, n - var + 0.0);
     }
     @Override
     public double getCumulativeValue(){
-        cumulativeValue = 0;
+        cumulativeValue = 0.0;
         int tmp = var;
-        for(int i = 0; i < var; i++){
+        for(int i = 0; i < tmp; i++){
             var = i;
             cumulativeValue += getValue();
         }

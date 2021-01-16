@@ -21,9 +21,9 @@ public class Hipergeometric extends Davpd{
     }
     @Override
     public double getCumulativeValue(){
-        cumulativeValue = 0;
+        cumulativeValue = 0.0;
         int tmp = var;
-        for(int i = Math.max(0, n - r2); i < var; i++){
+        for(int i = Math.max(0, n - r2); i < tmp; i++){
             var = i;
             cumulativeValue += getValue();
         }

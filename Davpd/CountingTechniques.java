@@ -1,6 +1,6 @@
 public final class CountingTechniques {
     public static double factorial(double n){
-        return n == 0.0 ? 1.0 : n * factorial(n);
+        return n == 0.0 ? 1.0 : n * factorial(n - 1.0);
     }
     public static double permutation(double n, double r) {
         return factorial(n) / factorial(n - r);
