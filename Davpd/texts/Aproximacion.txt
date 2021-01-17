@@ -1,0 +1,4 @@
+Aproximación Poisson a la Binomial
+
+
+En este caso se determinarán probabilidades de experimentos Binomiales, pero que dadas sus características, es posible aproximarlas con la distribución de Poisson, estas características son, n ¥® ( n es muy grande) y p®0 (p es muy pequeña)

@@ -1,0 +1,17 @@
+Distribución Binomial Negativa
+
+Esta distribución puede considerarse como una extensión o ampliación de la distribución geométrica . La distribución binomial negativa es un modelo adecuado para tratar aquellos procesos en los que se repite un determinado ensayo o prueba hasta conseguir un número determinado de resultados favorables (por vez primera) .Es por tanto de gran utilidad para aquellos muestreos que procedan de esta manera. Si el número de resultados favorables buscados fuera 1 estaríamos en el caso de la distribución geométrica . Está implicada también la existencia de una dicotomía de resultados posibles en cada prueba y la independencia de cada prueba o ensayo, o la reposición de los individuos muestreados.
+
+Proceso experimental del que puede hacerse derivar
+
+Esta distribución o modelo puede hacerse derivar de un proceso experimental puro o de Bernouilli en el que se presenten las siguientes condiciones
+
+· El proceso consta de un número no definido de pruebas separadas o separables . El proceso concluirá cuando se obtenga un determinado número de resultados favorables K
+
+· Cada prueba puede dar dos resultados posibles mutuamente excluyentes A y no A
+
+· La probabilidad de obtener un resultado A en cada una de las pruebas es p siendo la probabilidad de no A , q . Lo que nos lleva a que p+q=1
+
+· Las probabilidades p y q son constantes en todas las pruebas. Todas las pruebas son independientes. Si se trata de un experimento de extracción éste se llevará cabo con devolución del individuo extraído, a no ser que se trate de una población en la que el número de individuos tenga de carácter infinito.
+
+· (Derivación de la distribución) Si, en estas circunstancias aleatorizamos de forma que la variable aleatoria x sea "el número de pruebas necesarias para conseguir K éxitos o resultados A " ; entonces la variable aleatoria x seguirá una distribución binomial negativa con parámetros p y k

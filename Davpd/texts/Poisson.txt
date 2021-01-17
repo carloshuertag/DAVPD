@@ -1,0 +1,18 @@
+Distribución de Poisson
+Esta distribución es una de las más importantes distribuciones de variable discreta. Sus principales aplicaciones hacen referencia a la modelización de situaciones en las que nos interesa determinar el número de hechos de cierto tipo que se pueden producir en un intervalo de tiempo o de espacio, bajo presupuestos de aleatoriedad y ciertas circunstancias restrictivas. Otro de sus usos frecuentes es la consideración límite de procesos dicotómicos reiterados un gran número de veces si la probabilidad de obtener un éxito es muy pequeña .
+
+    Esta distribución se puede hacer derivar de un proceso experimental de observación en el que tengamos las siguientes características
+
+· Se observa la realización de hechos de cierto tipo durante un cierto periodo de tiempo o a lo largo de un espacio de observación
+
+· Los hechos a observar tienen naturaleza aleatoria ; pueden producirse o no de una manera no determinística.
+
+· La probabilidad de que se produzcan un número x de éxitos en un intervalo de amplitud t no depende del origen del intervalo (Aunque, sí de su amplitud)
+
+· La probabilidad de que ocurra un hecho en un intervalo infinitésimo es prácticamente proporcional a la amplitud del intervalo.
+
+· La probabilidad de que se produzcan 2 o más hechos en un intervalo infinitésimo es un infinitésimo de orden superior a dos.
+
+En consecuencia, en un intervalo infinitésimo podrán producirse O ó 1 hecho pero nunca más de uno
+
+· Si en estas circunstancias aleatorizamos de forma que la variable aleatoria X signifique o designe el "número de hechos que se producen en un intervalo de tiempo o de espacio", la variable X se distribuye con una distribución de parámetro l 
