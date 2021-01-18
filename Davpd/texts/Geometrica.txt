@@ -1,0 +1,17 @@
+Distribución geometrica
+La distribución geométrica es un modelo adecuado para aquellos procesos en los que se repiten pruebas hasta la consecución del éxito a resultado deseado y tiene interesantes aplicaciones en los muestreos realizados de esta manera . También implica la existencia de una dicotomía de posibles resultados y la independencia de las pruebas entre sí.
+
+Proceso experimental del que se puede hacer derivar
+
+Esta distribución se puede hacer derivar de un proceso experimental puro o de Bernouilli en el que tengamos las siguientes características
+
+· El proceso consta de un número no definido de pruebas o experimentos separados o separables. El proceso concluirá cuando se obtenga por primera vez el resultado deseado (éxito).
+
+· Cada prueba puede dar dos resultados mutuamente excluyentes : A y no A
+
+· La probabilidad de obtener un resultado A en cada prueba es p y la de obtener un resultado no A es q
+siendo (p + q = 1).
+
+Las probabilidades p y q son constantes en todas las pruebas ,por tanto , las pruebas ,son independientes (si se trata de un proceso de "extracción" éste se llevará a , cabo con devolución del individuo extraído) .
+
+· (Derivación de la distribución). Si en estas circunstancias aleatorizamos de forma que tomemos como variable aleatoria X = el número de pruebas necesarias para obtener por primera vez un éxito o resultado A , esta variable se distribuirá con una distribución geométrica de parámetro p

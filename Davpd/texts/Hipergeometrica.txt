@@ -1,0 +1,6 @@
+Distribucion hipergeometrica
+La distribución hipergeométrica es una distribución discreta que modela el número de eventos en una muestra de tamaño fijo cuando usted conoce el número total de elementos en la población de la cual proviene la muestra. Cada elemento de la muestra tiene dos resultados posibles (es un evento o un no evento). Las muestras no tienen reemplazo, por lo que cada elemento de la muestra es diferente. Cuando se elige un elemento de la población, no se puede volver a elegir. Por lo tanto, la probabilidad de que un elemento sea seleccionado aumenta con cada ensayo, presuponiendo que aún no haya sido seleccionado.
+
+Utilice la distribución hipergeométrica para muestras obtenidas de poblaciones relativamente pequeñas, sin reemplazo. Por ejemplo, la distribución hipergeométrica se utiliza en la prueba exacta de Fisher para probar la diferencia entre dos proporciones y en muestreos de aceptación por atributos cuando se toman muestras de un lote aislado de tamaño finito.
+
+La distribución hipergeométrica se define por 3 parámetros: tamaño de la población, conteo de eventos en la población y tamaño de la muestra.

@@ -1,0 +1,6 @@
+Distribución bernoulli
+Utilice la distribución de Bernoulli cuando un proceso aleatorio tenga exactamente dos resultados: evento o no evento. Por ejemplo, en el campo de la calidad, un producto se puede clasificar como bueno o malo.
+
+Las variables de Bernoulli pueden tomar dos valores numéricos, 0 y 1, donde 1 corresponde a un evento y 0 corresponde a un no evento. Una variable aleatoria X sigue una distribución de Bernoulli si P(X = 1) = p y P(X = 0) = 1 – p, donde p es la probabilidad de ocurrencia del evento.
+
+La distribución de Bernoulli es una distribución discreta que está relacionada con muchas distribuciones, tales como la distribución binomial, geométrica y binomial negativa. La distribución de Bernoulli representa el resultado de 1 ensayo. Las secuencias de ensayos de Bernoulli independientes generan las demás distribuciones: la distribución binomial modela el número de éxitos en n ensayos, la distribución geométrica modela el número de fallas antes del primer éxito y la distribución binomial negativa modela el número de fallas antes del éxito xésimo.
