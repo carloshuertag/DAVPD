@@ -182,7 +182,7 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent){
-        if(actionEvent.getActionCommand().equals("Calculate")){
+        if(actionEvent.getSource().equals(calculateJButton)){
             try{
                 davpds.get(davpdJComboBox.getSelectedIndex() - 1).setVar(Integer.parseInt(varJTextField.getText()));
                 switch(davpdJComboBox.getSelectedIndex()){
@@ -243,7 +243,7 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
                 JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
-        if(actionEvent.getActionCommand().equals("Clear")){
+        if(actionEvent.getSource().equals(clearJButton)){
             enableParams(0);
             functionJComboBox.setSelectedIndex(0);
             davpdJComboBox.setSelectedIndex(0);
