@@ -1,3 +1,5 @@
+import javax.swing.JPanel;
+
 public class Time extends Thread {
     private boolean stop;
     private int s;

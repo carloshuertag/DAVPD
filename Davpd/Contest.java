@@ -31,7 +31,7 @@ public class Contest extends JPanel implements ActionListener {
         initIp();
         initAnswer();
         initCheck();
-        time = new Time();//time.start() to set time.setStop(true) to stop
+        time = new Time(this);//time.start() to set time.setStop(true) to stop
     }
     private void initIp() {
         nameJLabel = new JLabel("Nombre: ");
@@ -62,7 +62,7 @@ public class Contest extends JPanel implements ActionListener {
         questionJLabel.setSize(250, 50);
     }
     private void initCheck() {
-        checkJPanel = new JPanel(1, 5, 1, 1);
+        checkJPanel = new JPanel(new GridLayout(1, 5, 1, 1));
         add(checkJPanel);
     }
     private void enableAnswer() {
