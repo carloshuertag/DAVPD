@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package panelwiki;
+package proyectopye;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -18,6 +18,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.text.DefaultCaret;
+import static javax.swing.text.DefaultCaret.ALWAYS_UPDATE;
 
 /**
  *
@@ -30,7 +32,7 @@ public class Wiki extends javax.swing.JPanel {
      */
     public Wiki() {
         initComponents();
-        lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\images\\Selec2.jpg"));
+        lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\Selec2.jpg"));
     }
 
     /**
@@ -71,32 +73,30 @@ public class Wiki extends javax.swing.JPanel {
         txtcampo.setLineWrap(true);
         txtcampo.setRows(5);
         txtcampo.setWrapStyleWord(true);
+        txtcampo.setAutoscrolls(false);
         jScrollPane3.setViewportView(txtcampo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(cboDistribuciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(cboDistribuciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addComponent(cboDistribuciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -106,30 +106,28 @@ public class Wiki extends javax.swing.JPanel {
         File file = null;
         if(opcion == "Selecciona una distribucion"){
             txtcampo.setText("");
-            /*
-            BufferedImage image = null;
-            try {
-                image = ImageIO.read(new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\images\\Selec2.jpg"));
-            } catch (IOException ex) {
-                Logger.getLogger(Wiki.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
-            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\images\\Selec2.jpg"));
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\Selec2.jpg"));
             return ;
         }else if(opcion == "Bernoulli"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Bernoulli.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Bernoulli.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\Bernoulli.jpg"));
         }else if(opcion == "Binomial"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Binomial.txt");
-            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\images\\Binomial.jpg"));
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Binomial.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\Binomial.jpg"));
         }else if(opcion == "Binomial Negativa"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Negativa.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Negativa.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\binomialNegativa.jpg"));
         }else if(opcion == "Geometrica"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Geometrica.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Geometrica.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\Geométrica.jpg"));
         }else if(opcion == "Hipergeometrica"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Hipergeometrica.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Hipergeometrica.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\hipergeometrica.jpg"));
         }else if(opcion == "Poisson"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Poisson.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Poisson.txt");
+            lblimage.setIcon(new ImageIcon("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\images\\poisson.jpg"));
         }else if(opcion == "Aproximacion Binomial - Poisson"){
-            file = new File("C:\\Users\\FSE\\Desktop\\panelWiki\\src\\texts\\Aproximacion.txt");
+            file = new File("C:\\Users\\FSE\\Desktop\\ProyectoPYE\\src\\texts\\Aproximacion.txt");
         }
         BufferedReader br = null; 
         try {
@@ -145,6 +143,7 @@ public class Wiki extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Error interno del programa: "+ex);
         }
         txtcampo.setText(st);
+        txtcampo.setCaretPosition(0);
     }//GEN-LAST:event_cboDistribucionesItemStateChanged
 
     private void cboDistribucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDistribucionesActionPerformed
