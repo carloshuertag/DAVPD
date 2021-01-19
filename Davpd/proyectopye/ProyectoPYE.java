@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package panelwiki;
+package proyectopye;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -12,20 +12,18 @@ import javax.swing.WindowConstants;
  *
  * @author FSE
  */
-public class PanelWiki {
+public class ProyectoPYE {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Wiki p = new Wiki();
-        JFrame f = new JFrame();
-        f.setSize(605, 421);
-        f.setLocation(500, 200);
-        f.getContentPane().add(p);
-        f.setVisible(true);
-        f.setResizable(false);
-        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frmMenu p = new frmMenu();
+        p.setSize(622, 421);
+        p.setLocation(500, 200);
+        p.setVisible(true);
+        p.setResizable(false);
+        p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
 }
