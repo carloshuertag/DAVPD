@@ -32,6 +32,7 @@ public class Calculator extends JPanel implements ActionListener, ItemListener {
         add(davpdJPanel);
         setCalculator();
         add(varJPanel);
+        setVisible(true);
     }
     private void setDavpds() {
         davpds = new ArrayList<Davpd>();

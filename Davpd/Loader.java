@@ -29,5 +29,5 @@ public class Loader {
         }
     }
     public void newOpponent(User user) { data.add(user); }
-    public ArrayList<User> getOpponents(Davpd davpd){ return data; }
+    public ArrayList<User> getOpponents(){ return data; }
 }

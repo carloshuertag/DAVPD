@@ -23,19 +23,24 @@ import java.io.DataOutputStream;
 public class Contest extends JPanel implements ActionListener {
     private static final long serialVersionUID = -8832597883331891416L;
     private JPanel checkJPanel;
-    private JButton answerJButton, serverJButton, clientJButton, historyJButton;
+    private JButton answerJButton, clearJButton, startJButton, historyJButton;
     public JTextField timerJTextField;
     private JLabel ipJLabel, nameJLabel, questionJLabel;
     private JTextField answerJTextField, nameJTextField, ipJTextField;
     private ArrayList<JLabel> answersCountJLabels;
+    private ArrayList<String> questions, answers;
     private Time time;
+    private Loader loader;
+    private int contest;
+    /*
     private ServerSocket ss;
     private Socket s;
     private DataInputStream dataInputStream;
     private DataOutputStream dataOutputStream;
-    private Loader loader;
     private InetAddress ip;
+    
     private String message = "";
+    */
 
     public Contest(int width, int height) {
         setSize(width, height);
@@ -47,9 +52,11 @@ public class Contest extends JPanel implements ActionListener {
         initAnswer();
         time = new Time(this);
         loader = new Loader();
+        contest = -1;
         initCheck();
         loader.input();
         addElements();
+        setContest();
         //time.start() to set time.setStop(true) to stop
     }
     private void initIp() {
@@ -63,12 +70,12 @@ public class Contest extends JPanel implements ActionListener {
         ipJTextField = new JTextField();
         ipJTextField.setSize(250, 50);
         ipJTextField.setToolTipText("Clave");
-        serverJButton = new JButton("Crear concurso");
-        serverJButton.setSize(250, 50);
-        serverJButton.addActionListener(this);
-        clientJButton = new JButton("Unirse a un concurso");
-        clientJButton.setSize(250, 50);
-        clientJButton.addActionListener(this);
+        clearJButton = new JButton("Limpiar");
+        clearJButton.setSize(250, 50);
+        clearJButton.addActionListener(this);
+        startJButton = new JButton("Iniciar");
+        startJButton.setSize(250, 50);
+        startJButton.addActionListener(this);
     }
     private void initAnswer() {
         questionJLabel = new JLabel("Pregunta");
@@ -84,9 +91,8 @@ public class Contest extends JPanel implements ActionListener {
         timerJTextField = new JTextField();
         timerJTextField.setSize(250, 50);
         timerJTextField.setEditable(false);
-        time.start();
         answersCountJLabels = new ArrayList<>();
-        checkJPanel = new JPanel(new GridLayout(2, 5, 1, 1));
+        checkJPanel = new JPanel(new GridLayout(1, 5, 1, 1));
         for(int i = 1; i < 11; i++){
             answersCountJLabels.add(new JLabel(String.valueOf(i)));
             answersCountJLabels.get(i-1).setSize(250, 50);
@@ -103,37 +109,79 @@ public class Contest extends JPanel implements ActionListener {
         add(ipJLabel);
         add(ipJTextField);
         add(answerJTextField);
-        add(serverJButton);
-        add(clientJButton);
+        add(clearJButton);
+        add(startJButton);
         add(answerJButton);
         add(timerJTextField);
         add(checkJPanel);
         add(historyJButton);
     }
-    private void enableAnswer(int ans[]) {
-        for(int i = 0; i < ans.length; i++)
-            if(ans[i]==1)
-                answersCountJLabels.get(i+5).setBackground(Color.GREEN);
-            else
-                answersCountJLabels.get(i+5).setBackground(Color.RED);
+    private void enableAnswer(boolean correct) {
+        if(correct) {
+            answersCountJLabels.get(contest).setBackground(Color.GREEN);
+            JOptionPane.showMessageDialog(null, "Respuesta correcta");
+        }
+        else {
+            answersCountJLabels.get(contest).setBackground(Color.RED);
+            JOptionPane.showMessageDialog(null, "Respuesta incorrecta");
+        }
+    }
+    public void setContest(){
+        questions = new ArrayList<String>();
+        answers = new ArrayList<String>();
+        questions.add("Dada una distribución de Poisson, elegir la afirmación falsa.\na. Media y varianza coinciden.\nb. Tiene un sólo parámetro.\nc. La media sólo puede tomar valores enteros.\nd. La variable nunca toma valores negativos.");
+        answers.add("c");
+        questions.add("Un valor x de la variable aleatoria es posible si tiene probabilidad de ocurrencia diferente a:\na. Infinito.\nb. La covarianza.\nc. Cero.\nd. El primer momento.");
+        answers.add("c");
+        questions.add("La varianza de una _____________ nos da como resultado cero:\na. Variable.\nb. Constante.\nc. Esperanza.\nd. Desviacion.");
+        answers.add("b");
+        questions.add("La n-ésima derivada de la f.g.m evaluada en cero es el n-ésimo ___________.\na. Infinito.\nb. Integrador.\nc. Origen.\nd. Momento.");
+        answers.add("d");
+        questions.add("La función de probabilidad acumulada será 1 en cualquier caso cuando x es menor a:\na. n.\nb. La covarianza.\nc. Cero.\nd. Infinito.");
+        answers.add("d");
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(answerJButton)){
             try{
+                if(contest != -1){
+                    enableAnswer(answerJTextField.getText().equalsIgnoreCase(answers.get(contest)));
+                    contest++;
+                    if(contest == 5){
+                        contest = -1;
+                        JOptionPane.showMessageDialog(null, String.format("El concurso ha terminado en %s segundos", timerJTextField.getText()));
+                        loader.newOpponent(new User(nameJTextField.getText(), ipJTextField.getText()));
+                        loader.output();
+                        time.stop();
+                        timerJTextField.setText("0");
+                    } else 
+                        questionJLabel.setText(questions.get(contest));
+                    answerJTextField.setText("");
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "No ha iniciado el concurso");
+                /*
                 if(s != null){
                     //Validacion Pregunta
                     dataOutputStream.writeUTF(message);  
                     dataOutputStream.flush(); 
                 } else//Consurso no hay iniciado
                     JOptionPane.showMessageDialog(null, "No se ha iniciado o unido a un concurso");
+                */
             } catch (Exception e){
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
-        if(actionEvent.getSource().equals(serverJButton)){
+        if(actionEvent.getSource().equals(clearJButton)){
             try {
+                answerJTextField.setText("");
+                questionJLabel.setText("");
+                nameJTextField.setText("");
+                ipJTextField.setText("");
+                time.stop();
+                timerJTextField.setText("0");
+                /*
                 ip = InetAddress.getLocalHost();
                 ipJTextField.setText(Encrypt.encrypt(ip.toString()));
                 ipJTextField.setEnabled(false);
@@ -165,13 +213,23 @@ public class Contest extends JPanel implements ActionListener {
                         } finally {}
                     }
                 });
+                */
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
-        if(actionEvent.getSource().equals(clientJButton)){
+        if(actionEvent.getSource().equals(startJButton)){
             try {
+                if(contest == -1 && !nameJTextField.getText().equals("")){
+                    contest++;
+                    questionJLabel.setText(questions.get(contest));
+                    JOptionPane.showMessageDialog(null, "Empieza ahora");
+                    time.start();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al inicar concurso");
+                }
+                /*
                 ip = InetAddress.getByName(Encrypt.decrypt(ipJTextField.getText()));
                 s = new Socket(ip, 3333);
                 loader.newOpponent(new User(nameJTextField.getText(), ipJTextField.getText()));
@@ -201,14 +259,15 @@ public class Contest extends JPanel implements ActionListener {
                         
                     }
                 });
+                */
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
         if(actionEvent.getSource().equals(historyJButton)){
-            String str = "";
-            JOptionPane.showMessageDialog(null, str);
+            String str = loader.getOpponents().toString();
+            JOptionPane.showMessageDialog(null, "Tu historial de partidas: \n" + str);
         }
     }
 
