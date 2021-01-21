@@ -40,7 +40,8 @@ public class frmMenu extends javax.swing.JFrame {
         jpanCon = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jpanAce = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblimage = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -213,23 +214,18 @@ public class frmMenu extends javax.swing.JFrame {
 
         jpancenter.add(jpanCon, "card4");
 
-        jLabel4.setText("this is ace");
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/readme.png"))); // NOI18N
+        jScrollPane1.setViewportView(lblimage);
 
         javax.swing.GroupLayout jpanAceLayout = new javax.swing.GroupLayout(jpanAce);
         jpanAce.setLayout(jpanAceLayout);
         jpanAceLayout.setHorizontalGroup(
             jpanAceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanAceLayout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(jLabel4)
-                .addContainerGap(327, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
         jpanAceLayout.setVerticalGroup(
             jpanAceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanAceLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jLabel4)
-                .addContainerGap(197, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         jpancenter.add(jpanAce, "card5");
@@ -273,9 +269,9 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jpanWiki.setVisible(false);
-        jpanAce.setVisible(false);
+        jpanAce.setVisible(true);
         jpanCon.setVisible(false);
-        jpanCal.setVisible(true);
+        jpanCal.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -316,15 +312,16 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpanAce;
     private javax.swing.JPanel jpanCal;
     private javax.swing.JPanel jpanCon;
     private javax.swing.JPanel jpanWiki;
     private javax.swing.JPanel jpancenter;
     private javax.swing.JPanel jpanmenu;
+    private javax.swing.JLabel lblimage;
     private proyectopye.Wiki wiki1;
     // End of variables declaration//GEN-END:variables
 }
