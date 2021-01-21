@@ -1,7 +1,7 @@
 public class Hipergeometric extends Davpd{
     private int r1, r2, n;
     public Hipergeometric () {
-        super("images/HipergeomtricD.jpg", "images/HipergeomtricF.jpg", "images/HipergeomtricC.jpg", "images/HipergeomtricM.jpg", "images/HipergeomtricV.jpg");
+        super("images/hipergeometrica.jpg", "texts/Hipergeomtrica.txt");
     }
     public Hipergeometric (int r1, int r2, int n){
         this();

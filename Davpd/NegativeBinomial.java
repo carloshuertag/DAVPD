@@ -2,15 +2,15 @@ public class NegativeBinomial extends Davpd{
     protected double p;
     protected int k;
     public NegativeBinomial () {
-        super("images/NegativeBinomialD.jpg", "images/NegativeBinomialF.jpg", "images/NegativeBinomialC.jpg", "images/NegativeBinomialM.jpg", "images/NegativeBinomialV.jpg");
+        super("images/binomialNegativa.jpg", "texts/Negativa.txt");
     }
     public NegativeBinomial (double p, int k){
         this();
         this.p = p;
         this.k = k;
     }
-    public NegativeBinomial (String description, String function, String cumulative, String mean, String variance, double p, int k){
-        super(description, function, cumulative, mean, variance);
+    public NegativeBinomial (String description, String functions, double p, int k){
+        super(description, functions);
         this.p = p;
         this.k = k;
     }

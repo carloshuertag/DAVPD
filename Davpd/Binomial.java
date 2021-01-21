@@ -2,7 +2,7 @@ public class Binomial extends Davpd{
     private double p;
     private int n;
     public Binomial () {
-        super("images/BinomialD.jpg", "images/BinomialF.jpg", "images/BinomialC.jpg", "images/BinomialM.jpg", "images/BinomialV.jpg");
+        super("images/Binomial.jpg", "texts/Binomial.txt");
     }
     public Binomial (double p, int n){
         this();

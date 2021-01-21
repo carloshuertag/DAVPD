@@ -1,6 +1,6 @@
 public class Geometric extends NegativeBinomial{
     public Geometric () {
-        super("images/GeometricD.jpg", "images/GeoemtricF.jpg", "images/GeometricC.jpg", "images/GeometricM.jpg", "images/GeometricV.jpg", 0.0, 1);
+        super("images/Geométrica.jpg", "texts/Geoemtrica.txt", 0.0, 1);
     }
     public Geometric (double p){
         this();

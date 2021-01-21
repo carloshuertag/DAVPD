@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import java.util.ArrayList;
@@ -45,7 +46,9 @@ public class Contest extends JPanel implements ActionListener {
         initIp();
         initAnswer();
         time = new Time(this);
+        loader = new Loader();
         initCheck();
+        loader.input();
         addElements();
         //time.start() to set time.setStop(true) to stop
     }
@@ -108,93 +111,103 @@ public class Contest extends JPanel implements ActionListener {
         add(historyJButton);
     }
     private void enableAnswer(int ans[]) {
-
+        for(int i = 0; i < ans.length; i++)
+            if(ans[i]==1)
+                answersCountJLabels.get(i+5).setBackground(Color.GREEN);
+            else
+                answersCountJLabels.get(i+5).setBackground(Color.RED);
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(answerJButton)){
             try{
-                if(s){
+                if(s != null){
                     //Validacion Pregunta
-                    
+                    dataOutputStream.writeUTF(message);  
+                    dataOutputStream.flush(); 
                 } else//Consurso no hay iniciado
                     JOptionPane.showMessageDialog(null, "No se ha iniciado o unido a un concurso");
             } catch (Exception e){
-
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
         if(actionEvent.getSource().equals(serverJButton)){
             try {
                 ip = InetAddress.getLocalHost();
-                ipJTextField.setText(Encrypt.encrypt(ip.getHostAddress()));
+                ipJTextField.setText(Encrypt.encrypt(ip.toString()));
                 ipJTextField.setEnabled(false);
                 ss = new ServerSocket(3333);
                 s = ss.accept();
                 dataInputStream = new DataInputStream(s.getInputStream());
                 dataOutputStream = new DataOutputStream(s.getOutputStream());
-                dataOutputStream.writeUTF("0");
+                dataOutputStream.writeUTF("");
                 dataOutputStream.flush();
                 Thread t = new Thread(new Runnable(){
                     @Override
                     public void run(){
                         while(true){
-                            String s = dataInputStream.readUTF();
-                            int[] ans = new int[s.length];
                             try{
-                                for(int i = 0; i < s.length; i++)
-                                    ans[i] = Character.getNumericValue(s.charAt(0));
+                                String str = dataInputStream.readUTF();
+                                int[] ans = new int[str.length()];
+                                for(int i = 0; i < str.length(); i++)
+                                    ans[i] = Character.getNumericValue(str.charAt(0));
                                 enableAnswer(ans);
+                                if(str.length() == 5)
+                                    break;
+                                dataInputStream.close();
+                                s.close();
+                                ss.close();
                             }
                             catch(Exception e){
                                 System.out.println(e.getMessage());
                             } finally {}
-                            if(s.length == 5)
-                                break;
                         }
-                        dataInputStream.close();
-                        s.close();
-                        ss.close();
                     }
                 });
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
         if(actionEvent.getSource().equals(clientJButton)){
             try {
-                ip = InetAddress.getByAddress(Encrypt.decrypt(ipJTextField.getText()));
+                ip = InetAddress.getByName(Encrypt.decrypt(ipJTextField.getText()));
                 s = new Socket(ip, 3333);
+                loader.newOpponent(new User(nameJTextField.getText(), ipJTextField.getText()));
                 dataInputStream = new DataInputStream(s.getInputStream());
                 dataOutputStream = new DataOutputStream(s.getOutputStream());
-                dataOutputStream.writeUTF("0");
+                dataOutputStream.writeUTF("");
                 dataOutputStream.flush();
                 Thread t = new Thread(new Runnable(){
                     @Override
                     public void run(){
                         while(true){
-                            String s = dataInputStream.readUTF();
-                            int[] ans = new int[s.length];
                             try{
-                                for(int i = 0; i < s.length; i++)
-                                    ans[i] = Character.getNumericValue(s.charAt(0));
+                                String str = dataInputStream.readUTF();
+                                int[] ans = new int[str.length()];
+                                for(int i = 0; i < str.length(); i++)
+                                    ans[i] = Character.getNumericValue(str.charAt(0));
                                 enableAnswer(ans);
+                                if(str.length() == 5)
+                                    break;
+                                dataOutputStream.close();
+                                s.close();
                             }
                             catch(Exception e){
                                 System.out.println(e.getMessage());
                             } finally {}
-                            if(s.length == 5)
-                                break;
                         }
-                        dataOutputStream.close();
-                        s.close();
                     }
                 });
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Formato de entrada inválido");
             } finally {}
         }
         if(actionEvent.getSource().equals(historyJButton)){
-
+            String str = "";
+            JOptionPane.showMessageDialog(null, str);
         }
     }
 

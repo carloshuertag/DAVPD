@@ -1,7 +1,7 @@
 public class Poisson extends Davpd{
     private double lamda;
     public Poisson () {
-        super("images/PoissonD.jpg", "images/PoissonF.jpg", "images/PoissonC.jpg", "images/PoissonM.jpg", "images/PoissonV.jpg");
+        super("images/poisson.jpg", "texts/Poisson.txt");
     }
     public Poisson (double lamda){
         this();
@@ -38,9 +38,9 @@ public class Poisson extends Davpd{
     }
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Davpd){
-            Davpd davpd = (Davpd) obj;
-            if(davpd.function == function)
+        if(obj instanceof Poisson){
+            Poisson p = (Poisson) obj;
+            if(p.lamda == lamda)
                 return true;
         }
         return false;
