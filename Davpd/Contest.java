@@ -14,6 +14,10 @@ import java.util.ArrayList;
 
 import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 
 public class Contest extends JPanel implements ActionListener {
     private static final long serialVersionUID = -8832597883331891416L;
@@ -24,6 +28,13 @@ public class Contest extends JPanel implements ActionListener {
     private JTextField answerJTextField, nameJTextField, ipJTextField;
     private ArrayList<JLabel> answersCountJLabels;
     private Time time;
+    private ServerSocket ss;
+    private Socket s;
+    private DataInputStream dataInputStream;
+    private DataOutputStream dataOutputStream;
+    private Loader loader;
+    private InetAddress ip;
+    private String message = "";
 
     public Contest(int width, int height) {
         setSize(width, height);
@@ -72,10 +83,11 @@ public class Contest extends JPanel implements ActionListener {
         timerJTextField.setEditable(false);
         time.start();
         answersCountJLabels = new ArrayList<>();
-        checkJPanel = new JPanel(new GridLayout(1, 5, 1, 1));
-        for(int i = 1; i < 6; i++){
+        checkJPanel = new JPanel(new GridLayout(2, 5, 1, 1));
+        for(int i = 1; i < 11; i++){
             answersCountJLabels.add(new JLabel(String.valueOf(i)));
             answersCountJLabels.get(i-1).setSize(250, 50);
+            answersCountJLabels.get(i-1).setOpaque(true);
         }
         historyJButton = new JButton("Historial");
         historyJButton.setSize(250, 50);
@@ -95,34 +107,95 @@ public class Contest extends JPanel implements ActionListener {
         add(checkJPanel);
         add(historyJButton);
     }
-    private void enableAnswer() {
+    private void enableAnswer(int ans[]) {
 
     }
     @Override
     public void actionPerformed(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(answerJButton)){
+            try{
+                if(s){
+                    //Validacion Pregunta
+                    
+                } else//Consurso no hay iniciado
+                    JOptionPane.showMessageDialog(null, "No se ha iniciado o unido a un concurso");
+            } catch (Exception e){
 
+            } finally {}
         }
         if(actionEvent.getSource().equals(serverJButton)){
             try {
-                InetAddress ip = InetAddress.getLocalHost();
-                String hostname = ip.getHostName();
-                ipJTextField.setText(ip.toString());
-                
+                ip = InetAddress.getLocalHost();
+                ipJTextField.setText(Encrypt.encrypt(ip.getHostAddress()));
+                ipJTextField.setEnabled(false);
+                ss = new ServerSocket(3333);
+                s = ss.accept();
+                dataInputStream = new DataInputStream(s.getInputStream());
+                dataOutputStream = new DataOutputStream(s.getOutputStream());
+                dataOutputStream.writeUTF("0");
+                dataOutputStream.flush();
+                Thread t = new Thread(new Runnable(){
+                    @Override
+                    public void run(){
+                        while(true){
+                            String s = dataInputStream.readUTF();
+                            int[] ans = new int[s.length];
+                            try{
+                                for(int i = 0; i < s.length; i++)
+                                    ans[i] = Character.getNumericValue(s.charAt(0));
+                                enableAnswer(ans);
+                            }
+                            catch(Exception e){
+                                System.out.println(e.getMessage());
+                            } finally {}
+                            if(s.length == 5)
+                                break;
+                        }
+                        dataInputStream.close();
+                        s.close();
+                        ss.close();
+                    }
+                });
             } catch (Exception e) {
                 e.getMessage();
             } finally {}
         }
         if(actionEvent.getSource().equals(clientJButton)){
-
+            try {
+                ip = InetAddress.getByAddress(Encrypt.decrypt(ipJTextField.getText()));
+                s = new Socket(ip, 3333);
+                dataInputStream = new DataInputStream(s.getInputStream());
+                dataOutputStream = new DataOutputStream(s.getOutputStream());
+                dataOutputStream.writeUTF("0");
+                dataOutputStream.flush();
+                Thread t = new Thread(new Runnable(){
+                    @Override
+                    public void run(){
+                        while(true){
+                            String s = dataInputStream.readUTF();
+                            int[] ans = new int[s.length];
+                            try{
+                                for(int i = 0; i < s.length; i++)
+                                    ans[i] = Character.getNumericValue(s.charAt(0));
+                                enableAnswer(ans);
+                            }
+                            catch(Exception e){
+                                System.out.println(e.getMessage());
+                            } finally {}
+                            if(s.length == 5)
+                                break;
+                        }
+                        dataOutputStream.close();
+                        s.close();
+                    }
+                });
+            } catch (Exception e) {
+                e.getMessage();
+            } finally {}
         }
         if(actionEvent.getSource().equals(historyJButton)){
 
         }
-    }
-
-    private void send(String message){
-        
     }
 
 }
