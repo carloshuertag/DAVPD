@@ -6,6 +6,7 @@ Este proyecto fue hecho por **Acosta Flores Pablo**, **Huerta García Carlos** y
 # ¿Cómo funciona?
 
 El usuario ingresa a un menú en el que puede seleccionar la distribución de la que desea obtener una descripción, la notación que se utiliza para representarla, la función de probabilidad, media, varianza, función generadora de momentos y la acumulada.
+
 ![Imagen del Menú inicial](https://media.discordapp.net/attachments/797915694784053310/801653445970231337/unknown.png)
 
 Puede acceder a diferentes opciones desde el menú superior que le permitirán acceder a **cálculos** de cada una de las distribuciones, acceder a un **concurso** con un usuario diferente para contestar preguntas y competir, y a acceder a más información **acerca de** los autores de este código.
