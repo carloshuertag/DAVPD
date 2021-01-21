@@ -146,8 +146,8 @@ public class Contest extends JPanel implements ActionListener {
                 Thread t = new Thread(new Runnable(){
                     @Override
                     public void run(){
-                        while(true){
-                            try{
+                        try{
+                            while(true){
                                 String str = dataInputStream.readUTF();
                                 int[] ans = new int[str.length()];
                                 for(int i = 0; i < str.length(); i++)
@@ -155,14 +155,14 @@ public class Contest extends JPanel implements ActionListener {
                                 enableAnswer(ans);
                                 if(str.length() == 5)
                                     break;
-                                dataInputStream.close();
-                                s.close();
-                                ss.close();
                             }
-                            catch(Exception e){
-                                System.out.println(e.getMessage());
-                            } finally {}
+                            dataInputStream.close();
+                            s.close();
+                            ss.close();
                         }
+                        catch(Exception e){
+                            System.out.println(e.getMessage());
+                        } finally {}
                     }
                 });
             } catch (Exception e) {
@@ -182,8 +182,8 @@ public class Contest extends JPanel implements ActionListener {
                 Thread t = new Thread(new Runnable(){
                     @Override
                     public void run(){
-                        while(true){
-                            try{
+                        try{
+                            while(true){
                                 String str = dataInputStream.readUTF();
                                 int[] ans = new int[str.length()];
                                 for(int i = 0; i < str.length(); i++)
@@ -191,13 +191,14 @@ public class Contest extends JPanel implements ActionListener {
                                 enableAnswer(ans);
                                 if(str.length() == 5)
                                     break;
-                                dataOutputStream.close();
-                                s.close();
                             }
-                            catch(Exception e){
-                                System.out.println(e.getMessage());
-                            } finally {}
+                            dataOutputStream.close();
+                            s.close();
                         }
+                        catch(Exception e){
+                            System.out.println(e.getMessage());
+                        } finally {}
+                        
                     }
                 });
             } catch (Exception e) {
