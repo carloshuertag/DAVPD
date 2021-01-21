@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 public class Driver {
     public static void main(String args[]){
         JFrame jFrame = new JFrame("DAVPD");
-        JPanel calculatorJPanel = new Calculator(720, 480);
+        JPanel calculatorJPanel = new Contest(720, 480);
         jFrame.addWindowListener(new WindowAdapter() {
                 public void windowClosed(WindowEvent e) {
                     System.exit(0);
