@@ -3,10 +3,10 @@ import javax.swing.JPanel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class Driver {
+public class CalculatorDriver {
     public static void main(String args[]){
         JFrame jFrame = new JFrame("DAVPD");
-        JPanel contestJPanel = new Contest(1080, 720);
+        JPanel calculatorJPanel = new Calculator(1080, 720);
         jFrame.addWindowListener(new WindowAdapter() {
                 public void windowClosed(WindowEvent e) {
                     System.exit(0);
@@ -15,7 +15,7 @@ public class Driver {
         );
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(1080, 720);
-        jFrame.add(contestJPanel);
+        jFrame.add(calculatorJPanel);
         jFrame.setLayout(null);
         jFrame.setResizable(true);
         jFrame.setVisible(true);

@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
@@ -25,7 +26,8 @@ public class Contest extends JPanel implements ActionListener {
     private JPanel checkJPanel;
     private JButton answerJButton, clearJButton, startJButton, historyJButton;
     public JTextField timerJTextField;
-    private JLabel ipJLabel, nameJLabel, questionJLabel;
+    private JLabel ipJLabel, nameJLabel;
+    private JTextArea questionJLabel;
     private JTextField answerJTextField, nameJTextField, ipJTextField;
     private ArrayList<JLabel> answersCountJLabels;
     private ArrayList<String> questions, answers;
@@ -78,8 +80,11 @@ public class Contest extends JPanel implements ActionListener {
         startJButton.addActionListener(this);
     }
     private void initAnswer() {
-        questionJLabel = new JLabel("Pregunta");
+        questionJLabel = new JTextArea("Pregunta");
+        questionJLabel.setLineWrap(true);
+        questionJLabel.setAutoscrolls(true);
         questionJLabel.setSize(250, 50);
+        questionJLabel.setEditable(false);
         answerJTextField = new JTextField();
         answerJTextField.setSize(250, 50);
         answerJTextField.setToolTipText("Respuesta");
@@ -129,15 +134,15 @@ public class Contest extends JPanel implements ActionListener {
     public void setContest(){
         questions = new ArrayList<String>();
         answers = new ArrayList<String>();
-        questions.add("Dada una distribución de Poisson, elegir la afirmación falsa.\na. Media y varianza coinciden.\nb. Tiene un sólo parámetro.\nc. La media sólo puede tomar valores enteros.\nd. La variable nunca toma valores negativos.");
+        questions.add("Dada una distribución de Poisson, elegir la afirmación falsa.       a. Media y varianza coinciden.     b. Tiene un sólo parámetro.     c. La media sólo puede tomar valores enteros.     d. La variable nunca toma valores negativos.");
         answers.add("c");
-        questions.add("Un valor x de la variable aleatoria es posible si tiene probabilidad de ocurrencia diferente a:\na. Infinito.\nb. La covarianza.\nc. Cero.\nd. El primer momento.");
+        questions.add("Un valor x de la variable aleatoria es posible si tiene probabilidad de ocurrencia diferente a:     a. Infinito.      b. La covarianza.<br/>c. Cero.<br/>d. El primer momento.");
         answers.add("c");
-        questions.add("La varianza de una _____________ nos da como resultado cero:\na. Variable.\nb. Constante.\nc. Esperanza.\nd. Desviacion.");
+        questions.add("La varianza de una _____________ nos da como resultado cero:      a. Variable.     b. Constante.      c. Esperanza.      d. Desviacion.");
         answers.add("b");
-        questions.add("La n-ésima derivada de la f.g.m evaluada en cero es el n-ésimo ___________.\na. Infinito.\nb. Integrador.\nc. Origen.\nd. Momento.");
+        questions.add("La n-ésima derivada de la f.g.m evaluada en cero es el n-ésimo ___________.      a. Infinito.       b. Integrador.      c. Origen.     d. Momento.");
         answers.add("d");
-        questions.add("La función de probabilidad acumulada será 1 en cualquier caso cuando x es menor a:\na. n.\nb. La covarianza.\nc. Cero.\nd. Infinito.");
+        questions.add("La función de probabilidad acumulada será 1 en cualquier caso cuando x es menor a:      a. n.     b. La covarianza.     c. Cero.     d. Infinito.");
         answers.add("d");
     }
     @Override
@@ -154,6 +159,7 @@ public class Contest extends JPanel implements ActionListener {
                         loader.output();
                         time.stop();
                         timerJTextField.setText("0");
+                        questionJLabel.setText("");
                     } else 
                         questionJLabel.setText(questions.get(contest));
                     answerJTextField.setText("");
@@ -267,7 +273,7 @@ public class Contest extends JPanel implements ActionListener {
         }
         if(actionEvent.getSource().equals(historyJButton)){
             String str = loader.getOpponents().toString();
-            JOptionPane.showMessageDialog(null, "Tu historial de partidas: \n" + str);
+            JOptionPane.showMessageDialog(null, "Tu historial de partidas: <br/>" + str);
         }
     }
 
