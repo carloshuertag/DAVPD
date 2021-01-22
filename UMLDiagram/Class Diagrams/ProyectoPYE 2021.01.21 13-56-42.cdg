@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ProyectoPYE">
+  <ClassDiagramComponents>
+    <Class name="Bernoulli" package="" visibility="public" xPosition="1197.0" yPosition="489.0">
+      <Fields>
+        <Field name="p" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setP" returnType="void" visibility="public">
+          <Argument type="double" name="p"/>
+        </Method>
+        <Method name="getP" returnType="double" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public"/>
+        <Method name="getMeanValue" returnType="double" visibility="public"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Binomial" package="" visibility="public" xPosition="928.0" yPosition="56.0">
+      <Fields>
+        <Field name="p" type="double" visibility="private"/>
+        <Field name="n" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="p"/>
+          <Argument type="int" name="n"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setP" returnType="void" visibility="public">
+          <Argument type="double" name="p"/>
+        </Method>
+        <Method name="getP" returnType="double" visibility="public"/>
+        <Method name="setN" returnType="void" visibility="public">
+          <Argument type="int" name="n"/>
+        </Method>
+        <Method name="getN" returnType="double" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public"/>
+        <Method name="getMeanValue" returnType="double" visibility="public"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Calculator" package="" visibility="public" xPosition="863.0" yPosition="450.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="davpdJPanel" type="JPanel" visibility="private"/>
+        <Field name="clearJButton" type="JButton" visibility="private"/>
+        <Field name="varJLabel" type="JLabel" visibility="private"/>
+        <Field name="varJTextField" type="JTextField" visibility="private"/>
+        <Field name="davpdJComboBox" type="JComboBox" visibility="private"/>
+        <Field name="paramJLabels" type="ArrayList&lt;JLabel&gt;" visibility="private"/>
+        <Field name="paramJTextFields" type="ArrayList&lt;JTextField&gt;" visibility="private"/>
+        <Field name="davpds" type="ArrayList&lt;Davpd&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDavpds" returnType="void" visibility="private"/>
+        <Method name="enableParams" returnType="void" visibility="private">
+          <Argument type="int" name="c"/>
+        </Method>
+        <Method name="setParams" returnType="void" visibility="private"/>
+        <Method name="setDavpd" returnType="void" visibility="private"/>
+        <Method name="setCalculator" returnType="void" visibility="private"/>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="actionEvent"/>
+        </Method>
+        <Method name="itemStateChanged" returnType="void" visibility="public">
+          <Argument type="ItemEvent" name="itemEvent"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Contest" package="" visibility="public" xPosition="361.0" yPosition="29.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="checkJPanel" type="JPanel" visibility="private"/>
+        <Field name="answerJButton" type="JButton" visibility="private"/>
+        <Field name="timerJTextField" type="JTextField" visibility="public"/>
+        <Field name="ipJLabel" type="JLabel" visibility="private"/>
+        <Field name="answerJTextField" type="JTextField" visibility="private"/>
+        <Field name="answersCountJLabels" type="ArrayList&lt;JLabel&gt;" visibility="private"/>
+        <Field name="questions" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="time" type="Time" visibility="private"/>
+        <Field name="loader" type="Loader" visibility="private"/>
+        <Field name="contest" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initElements" returnType="void" visibility="private"/>
+        <Method name="initIp" returnType="void" visibility="private"/>
+        <Method name="initAnswer" returnType="void" visibility="private"/>
+        <Method name="initCheck" returnType="void" visibility="private"/>
+        <Method name="addElements" returnType="void" visibility="private"/>
+        <Method name="enableAnswer" returnType="void" visibility="private">
+          <Argument type="boolean" name="correct"/>
+        </Method>
+        <Method name="setContest" returnType="void" visibility="public"/>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="actionEvent"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CountingTechniques" package="" visibility="public" isFinal="true" xPosition="1161.0" yPosition="29.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="factorial" returnType="double" visibility="public" isStatic="true">
+          <Argument type="double" name="n"/>
+        </Method>
+        <Method name="permutation" returnType="double" visibility="public" isStatic="true">
+          <Argument type="double" name="n"/>
+          <Argument type="double" name="r"/>
+        </Method>
+        <Method name="combinatorial" returnType="double" visibility="public" isStatic="true">
+          <Argument type="double" name="n"/>
+          <Argument type="double" name="r"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Davpd" package="" visibility="public" isAbstract="true" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="description" type="String" visibility="protected"/>
+        <Field name="value" type="double" visibility="protected" isTransient="true"/>
+        <Field name="var" type="int" visibility="protected" isTransient="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+          <Argument type="String" name="functions"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDescription" returnType="void" visibility="public">
+          <Argument type="String" name="description"/>
+        </Method>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="setFunctions" returnType="void" visibility="public">
+          <Argument type="String" name="functions"/>
+        </Method>
+        <Method name="getFunctions" returnType="String" visibility="public"/>
+        <Method name="setVar" returnType="void" visibility="public">
+          <Argument type="int" name="var"/>
+        </Method>
+        <Method name="getVar" returnType="int" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="getMeanValue" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Driver" package="" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Encrypt" package="" visibility="public" isFinal="true" xPosition="2051.0" yPosition="45.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ToChar" returnType="char" visibility="private" isStatic="true">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="ToInt" returnType="char" visibility="private" isStatic="true">
+          <Argument type="char" name="i"/>
+        </Method>
+        <Method name="encrypt" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="x"/>
+        </Method>
+        <Method name="decrypt" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Geometric" package="" visibility="public" xPosition="1207.0" yPosition="799.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Hipergeometric" package="" visibility="public" xPosition="693.0" yPosition="61.0">
+      <Fields>
+        <Field name="r1" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="r1"/>
+          <Argument type="int" name="r2"/>
+          <Argument type="int" name="n"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setR1" returnType="void" visibility="public">
+          <Argument type="int" name="r1"/>
+        </Method>
+        <Method name="getR1" returnType="double" visibility="public"/>
+        <Method name="setR2" returnType="void" visibility="public">
+          <Argument type="int" name="r2"/>
+        </Method>
+        <Method name="getR2" returnType="double" visibility="public"/>
+        <Method name="setN" returnType="void" visibility="public">
+          <Argument type="int" name="n"/>
+        </Method>
+        <Method name="getN" returnType="double" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public"/>
+        <Method name="getMeanValue" returnType="double" visibility="public"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Loader" package="" visibility="public" xPosition="68.0" yPosition="35.0">
+      <Fields>
+        <Field name="data" type="ArrayList&lt;User&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="input" returnType="void" visibility="public"/>
+        <Method name="output" returnType="void" visibility="public"/>
+        <Method name="newOpponent" returnType="void" visibility="public">
+          <Argument type="User" name="user"/>
+        </Method>
+        <Method name="getOpponents" returnType="ArrayList&lt;User&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="NegativeBinomial" package="" visibility="public" xPosition="1450.0" yPosition="572.0">
+      <Fields>
+        <Field name="p" type="double" visibility="protected"/>
+        <Field name="k" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="p"/>
+          <Argument type="int" name="k"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+          <Argument type="String" name="functions"/>
+          <Argument type="double" name="p"/>
+          <Argument type="int" name="k"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setP" returnType="void" visibility="public">
+          <Argument type="double" name="p"/>
+        </Method>
+        <Method name="getP" returnType="double" visibility="public"/>
+        <Method name="setK" returnType="void" visibility="public">
+          <Argument type="int" name="k"/>
+        </Method>
+        <Method name="getK" returnType="double" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public"/>
+        <Method name="getMeanValue" returnType="double" visibility="public"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Poisson" package="" visibility="public" xPosition="1191.0" yPosition="179.0">
+      <Fields>
+        <Field name="lamda" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="double" name="lamda"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setLamda" returnType="void" visibility="public">
+          <Argument type="double" name="lamda"/>
+        </Method>
+        <Method name="getLamda" returnType="double" visibility="public"/>
+        <Method name="getValue" returnType="double" visibility="public"/>
+        <Method name="getCumulativeValue" returnType="double" visibility="public"/>
+        <Method name="getMeanValue" returnType="double" visibility="public"/>
+        <Method name="getVarianceValue" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="frmMenu" package="proyectopye" visibility="public" xPosition="68.0" yPosition="763.0">
+      <Fields>
+        <Field name="xMouse" type="int" visibility="package"/>
+        <Field name="yMouse" type="int" visibility="package"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton4" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton5" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenu1" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jpanAce" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpanCal" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpanCon" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpanWiki" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpancenter" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jpanmenu" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lblimage" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="wiki1" type="proyectopye.Wiki" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jPanel2MousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jPanel2MouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton4ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProyectoPYE" package="proyectopye" visibility="public" xPosition="1820.0" yPosition="161.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Wiki" package="proyectopye" visibility="public" xPosition="1809.0" yPosition="283.0">
+      <Fields>
+        <Field name="cboDistribuciones" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="lblimage" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="txtcampo" type="javax.swing.JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="cboDistribucionesItemStateChanged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ItemEvent" name="evt"/>
+        </Method>
+        <Method name="cboDistribucionesActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Time" package="" visibility="public" xPosition="414.0" yPosition="522.0">
+      <Fields>
+        <Field name="stop" type="boolean" visibility="private"/>
+        <Field name="s" type="int" visibility="private"/>
+        <Field name="contest" type="Contest" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JPanel" name="contest"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="setStop" returnType="void" visibility="public">
+          <Argument type="boolean" name="stop"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="" visibility="public" xPosition="92.0" yPosition="268.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="ip"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setIp" returnType="void" visibility="public">
+          <Argument type="String" name="ip"/>
+        </Method>
+        <Method name="getIp" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="loader" source="Contest" target="Loader" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Binomial" target="Davpd"/>
+    <HasRelation name="contest" source="Time" target="Contest" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Hipergeometric" target="Davpd"/>
+    <HasRelation name="time" source="Contest" target="Time" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Poisson" target="Davpd"/>
+    <HasRelation name="data" source="Loader" target="User" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;User&gt;"/>
+    <HasRelation name="davpds" source="Calculator" target="Davpd" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Davpd&gt;"/>
+    <IsRelation name="is" source="Geometric" target="NegativeBinomial"/>
+    <IsRelation name="is" source="NegativeBinomial" target="Davpd"/>
+    <IsRelation name="is" source="Bernoulli" target="Davpd"/>
+    <UseRelation source="Loader" target="User" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
